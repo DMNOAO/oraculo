@@ -1,0 +1,27 @@
+ion-content {
+    --background: transparent; // Asegúrate de que el fondo no esté configurado por defecto
+    background-image: url('/assets/magma.jpg'); // Asegúrate de que la ruta sea correcta
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative; // Para asegurar que el fondo se aplique correctamente
+  }
+  
+/* Cambia el color del texto del label */
+.custom-label {
+    color: #0a61e4; /* Color azul para el texto */
+    font-weight: bold; /* Texto en negrita */
+  }
+  
+  /* Cambiar el estilo del checkbox */
+  .custom-checkbox {
+    --background: #eeeeee; /* Fondo del checkbox */
+    --border-radius: 50%; /* Bordes redondeados */
+  }
+  
+  /* Personaliza el estado de selección */
+  .custom-checkbox:checked {
+    --background: #76FF03; /* Color cuando está seleccionado */
+    --border: 2px solid #76FF03; /* Borde cuando está seleccionado */
+  }
+  

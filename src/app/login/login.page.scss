@@ -1,0 +1,123 @@
+/* Clase para el fondo dinámico */
+.dynamic-background {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background-size: cover;
+    background-position: center;
+    animation: slideShow 20s infinite; /* Agregar la animación aquí */
+    transition: background-image 1s ease-in-out;
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro semi-transparente */
+  }
+  
+  /* Animación para cambiar las imágenes */
+  @keyframes slideShow {
+    0% { background-image: url('/assets/Ira-del-Nahual.jpg'); }
+    33% { background-image: url('/assets/Odin.jpg'); }
+    66% { background-image: url('/assets/Zeus.jpg'); }
+    100% { background-image: url('/assets/Merlin.jpg'); }
+  }
+  
+  /* Estilo para ion-content */
+  ion-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.5); /* Fondo blanco semi-transparente */
+    position: relative; /* Asegura que el contenido esté en relación con el fondo */
+    z-index: 1; /* Para que el contenido esté sobre el fondo */
+  }
+  
+  /* Estilos del contenedor del formulario */
+  .form-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo semitransparente para ver el fondo dinámico */
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(250, 247, 252, 0.1);
+    margin: 50px auto 0;
+  }
+  
+  /* Otros estilos para los elementos dentro del formulario */
+  ion-item {
+    --background: transparent;
+    --color: #6a0dad;
+    border-bottom: 1px solid #6a0dad;
+    margin: 30px 0;
+  }
+  
+  ion-input {
+    color: #FFFFFF;
+    --placeholder-color: #f61616;
+  }
+  
+  ion-label {
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  h1 {
+    color: #6a0dad;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px; /* Espacio encima del texto "INICIA SESIÓN" */
+    margin-bottom: 30px; /* Espacio debajo del texto */
+    text-shadow: 1px 1px 0 white;
+  }
+  
+  ion-title {
+    color: #6a0dad;
+    font-size: 4rem;
+    font-weight: bold;
+  
+    text-align: center;
+    margin-top: 60px; /* Ajusta este valor para bajarlo */
+    line-height: 1.2; /* Ajusta el espaciado de línea si es necesario */
+    text-shadow: 1px 1px 0 white, -1px 1px 0 white, 1px -1px 0 white, -1px -1px 0 white;
+  }
+  
+  /* Ajuste de imagen personalizada */
+  .imagen-ajustada {
+    width: 100%;
+    max-height: 150px; /* Ajusta el tamaño según lo que necesites */
+    object-fit: cover; /* Hace que la imagen se recorte en lugar de distorsionarse */
+    border-radius: 8px;
+    margin-bottom: 100px;
+  }
+  
+  .animate__animated.animate__bounce {
+    animation-duration: 3s; /* Ajusta la duración total de la animación */
+    animation-delay: 2s; /* Retrasa el inicio de la animación */
+    animation-iteration-count: 1; /* Ejecuta la animación solo una vez */
+  }
+  
+  .register-link {
+    margin-top: 20px;
+    text-align: center;
+  
+    ion-text a {
+      color: #3880ff; // Cambia este color si es necesario
+      font-weight: bold;
+      text-decoration: none;
+    }
+  
+    ion-text a:hover {
+      text-decoration: underline;
+    }
+  }
+  

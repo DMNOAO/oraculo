@@ -1,0 +1,52 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Ediciones</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- Fondo dinámico -->
+  <div class="background" [style.backgroundImage]="'url(' + backgroundImage + ')'">
+    <ion-img src="assets/logo_myl.png" class="imagen-ajustada" alt="Mitos y Leyendas"></ion-img>
+
+    <!-- Grid con las ediciones -->
+    <div class="grid-container">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6" *ngFor="let item of ediciones">
+            <!-- Card para cada edición -->
+            <ion-card (click)="navigateTo(item.route)" [ngStyle]="{'background-image': 'url(' + item.background + ')'}">
+              <ion-img [src]="item.background" alt="{{ item.title }}" class="card-image"></ion-img>
+              <ion-card-content>
+                <ion-card-title>{{ item.title }}</ion-card-title>
+                <p>{{ item.content }}</p>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+</ion-content>
+
+<!-- Footer con pestañas de navegación -->
+<ion-footer>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button (click)="navigateTo('home')">
+      <ion-icon name="home-outline"></ion-icon>
+      <ion-label>Inicio</ion-label>
+    </ion-tab-button>
+    <ion-tab-button (click)="navigateTo('perfil')">
+      <ion-icon name="person-outline"></ion-icon>
+      <ion-label>Perfil</ion-label>
+    </ion-tab-button>
+    <ion-tab-button (click)="navigateTo('tucoleccion')">
+      <ion-icon name="albums-outline"></ion-icon>
+      <ion-label>Tu Colección</ion-label>
+    </ion-tab-button>
+    <ion-tab-button (click)="cerrarSesion()">
+      <ion-icon name="log-out-outline"></ion-icon>
+      <ion-label>Cerrar Sesión</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-footer>

@@ -1,0 +1,18 @@
+ion-content {
+    --background: transparent; // Asegúrate de que el fondo no esté configurado por defecto
+    background-image: url('/assets/Mio-Cid-Campeador-1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: black;
+   
+  }
+  ion-card {
+    margin-top: 100px; // Ajusta el valor según necesites
+    background-color: rgba(255, 255, 255, 0.8); // Fondo blanco semi-transparente
+    border-radius: 8px; // Ajustar el borde redondeado
+  }
+ 
+  ion-card-title{
+    color: black;
+  }

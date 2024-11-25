@@ -1,0 +1,47 @@
+<ion-header></ion-header>
+
+<ion-content>
+  <!-- Fondo dinámico -->
+  <div class="dynamic-background"></div>
+
+  <!-- Contenedor con la imagen y el título -->
+  <div class="animate__animated animate__bounce">
+    <ion-title>O r á c u l o</ion-title>
+  </div>
+  <ion-img src="assets/logo_myl.png" class="imagen-ajustada" alt="Mitos y Leyendas"></ion-img>
+
+  <!-- Título de inicio de sesión -->
+  <h1>INICIA SESIÓN</h1>
+
+  <!-- Contenedor del formulario -->
+  <div class="form-container">
+    <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+      <ion-item>
+        <ion-label position="floating">Correo Electrónico</ion-label>
+        <ion-input type="email" formControlName="email"></ion-input>
+      </ion-item>
+      <ion-text color="danger" *ngIf="email?.invalid && email?.touched">
+        Ingresa una dirección de correo válida.
+      </ion-text>
+
+      <ion-item>
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input type="password" formControlName="password"></ion-input>
+      </ion-item>
+      <ion-text color="danger" *ngIf="password?.invalid && password?.touched">
+        La contraseña debe ser de 4 dígitos numéricos.
+      </ion-text>
+
+      <ion-button expand="full" shape="round" color="tertiary" type="submit" [disabled]="loginForm.invalid">
+        Ingresar
+      </ion-button>
+    </form>
+
+    <!-- Enlace al registro -->
+    <div class="register-link">
+      <ion-text>
+        ¿No tienes una cuenta? <a [routerLink]="['/register']">Regístrate aquí</a>
+      </ion-text>
+    </div>
+  </div>
+</ion-content>

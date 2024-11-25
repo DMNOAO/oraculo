@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Editar Perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form class="edit-profile-form" [formGroup]="editProfileForm" (ngSubmit)="saveProfileData()">
+    <ion-item>
+      <ion-label class="animated-label">Nombre de Usuario</ion-label>
+      <ion-input id="username" formControlName="username"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label class="animated-label">Nombre</ion-label>
+      <ion-input id="firstName" formControlName="firstName"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label class="animated-label">Apellido</ion-label>
+      <ion-input id="lastName" formControlName="lastName"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label class="animated-label">Nivel de Educación</ion-label>
+      <ion-input id="educationLevel" formControlName="educationLevel"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label class="animated-label">Fecha de Nacimiento</ion-label>
+      <ion-input type="date" id="birthDate" formControlName="birthDate"></ion-input>
+    </ion-item>
+  
+    <ion-button class="save-button" expand="block" type="submit" (click)="animateSaveButton()">
+      Guardar
+    </ion-button>
+    <ion-button expand="block" color="danger" (click)="clearProfileData()">Limpiar</ion-button>
+  </form>
+  
+</ion-content>
+
+
+<ion-footer>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button (click)="navigateTo('home')">
+      <ion-icon name="home-outline"></ion-icon>
+      <ion-label>Inicio</ion-label>
+    </ion-tab-button>
+    <ion-tab-button (click)="navigateTo('perfil')">
+      <ion-icon name="person-outline"></ion-icon>
+      <ion-label>Perfil</ion-label>
+    </ion-tab-button>
+    <ion-tab-button (click)="navigateTo('coleccion')">
+      <ion-icon name="albums-outline"></ion-icon>
+      <ion-label>Tu Colección</ion-label>
+    </ion-tab-button>
+    <ion-tab-button (click)="cerrarSesion()">
+      <ion-icon name="log-out-outline"></ion-icon>
+      <ion-label>Cerrar Sesión</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-footer>

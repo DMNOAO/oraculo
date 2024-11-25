@@ -1,0 +1,95 @@
+/* Fondo dinámico de pantalla completa */
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+  transition: background-image 1s ease-in-out;
+}
+
+/* Header, footer y toolbar transparentes */
+ion-header,
+ion-footer,
+ion-toolbar {
+  --background: rgba(0, 0, 0, 0.0);
+  box-shadow: none;
+  color: white;
+}
+
+ion-tab-bar {
+  --background: transparent;
+}
+
+ion-tab-button {
+  color: white;
+}
+
+ion-title {
+  color: white;
+  font-size: 4rem;
+}
+
+/* Contenedor de tarjetas en cuadrícula */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Diseño adaptable */
+  gap: 15px; /* Espaciado entre tarjetas */
+  padding: 10px;
+}
+
+/* Estilo para las tarjetas */
+ion-card {
+  width: 100%;
+  height: 220px; /* Ajusta según el contenido */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background: none; /* Fondo transparente */
+  border: 2px solid black; /* Borde negro agregado */
+  border-radius: 10px;
+  overflow: hidden;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+ion-card:hover {
+  transform: scale(1.05); /* Efecto al pasar el mouse */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra al hover */
+}
+
+.card-image {
+  width: 100%;
+  height: 150px; /* Altura ajustable */
+  object-fit: contain;
+  border-radius: 10px 10px 0 0; /* Redondeo solo en la parte superior */
+}
+
+ion-card-title {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 10px;
+  color: white; /* Cambiado de black a white */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Agregado para borde negro alrededor del texto */
+}
+
+/* Imagen del logo ajustada */
+.imagen-ajustada {
+  width: 100%;
+  max-height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+ion-img {
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* Asegura que la imagen se ajuste al espacio disponible */
+  border-radius: 10px;
+}

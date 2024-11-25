@@ -1,0 +1,10 @@
+{
+    "ediciones": [
+        {"id_edicion": "E001", "name_edicion": "Primera Edición", "imagen": "url_imagen_1"},
+        {"id_edicion": "E002", "name_edicion": "Segunda Edición", "imagen": "url_imagen_2"}
+    ],
+    "cartas": [
+        {"id_carta": "C001", "name_carta": "Carta Uno", "tipo": "hechizo", "coste": 5, "id_edicion": "E001", "rareza": "común", "imagen": "url_carta_1"},
+        {"id_carta": "C002", "name_carta": "Carta Dos", "tipo": "aliado", "coste": 8, "id_edicion": "E002", "rareza": "rara", "imagen": "url_carta_2", "fuerza": 10, "raza": "elfo"}
+    ]
+}

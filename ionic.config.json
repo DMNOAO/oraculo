@@ -1,0 +1,7 @@
+{
+  "name": "oraculo",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

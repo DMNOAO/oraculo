@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Crear Cuenta</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form (ngSubmit)="onRegister()" #registerForm="ngForm">
+    <ion-input
+      type="email"
+      required
+      [(ngModel)]="email"
+      name="email"
+      placeholder="Enter email">
+    </ion-input>
+    <ion-input
+      type="password"
+      required
+      [(ngModel)]="password"
+      name="password"
+      placeholder="Enter password">
+    </ion-input>
+    <ion-button expand="block" type="submit">Register</ion-button>
+  </form>
+  
+</ion-content>

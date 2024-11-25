@@ -1,0 +1,78 @@
+ion-content {
+    position: relative;
+    border: 2px solid #6a0dad; /* Borde fino de color alrededor de la pantalla */
+    margin: 0; /* Quita el margen para que el borde toque los bordes de la pantalla */
+    box-sizing: border-box; /* Asegura que el borde no afecte el tamaño total */
+    background-image: url('/assets/Ra.png'); 
+    background-size: cover; /* Asegura que la imagen cubra todo el fondo */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+  }
+  
+  #container {
+    text-align: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 60%;
+    transform: translateY(-40%);
+    width: 90%;
+    max-width: 600px;
+    padding: 20px;
+    border-radius: 10px;
+    backdrop-filter: blur(5px); /* Añade un desenfoque de fondo */
+  }
+  
+    
+    
+    #container strong {
+      font-size: 20px;
+      line-height: 26px;
+    }
+    
+    #container p {
+      font-size: 16px;
+      line-height: 22px;
+      color: rgba(140, 140, 140, 0.8); /* Texto gris claro con opacidad */
+      margin: auto;
+    }
+    
+    #container a {
+      text-decoration: none;
+    }
+    
+    ion-item {
+      color: #7d01db;
+      font-size: 1rem; /* Ajusta el tamaño según prefieras */
+      font-weight: bold; /* Opcional: para hacer el texto más grueso */
+      font-family: 'Roboto', sans-serif; /* Cambia 'Roboto' al nombre de tu fuente */
+      margin: 30px 0;
+    }
+    
+    h1, h2, h3 {
+      color: #7d01db;
+      font-weight: bold; /* Opcional: para hacer el texto más grueso */
+      font-family: 'Roboto', sans-serif; /* Cambia 'Roboto' al nombre de tu fuente */
+      text-align: center;
+      text-shadow: 
+        1px 1px 0 white, 
+        -1px 1px 0 white, 
+        1px -1px 0 white, 
+        -1px -1px 0 white;
+    }
+    
+    ion-input {
+      color: #FFFFFF; /* Cambia el color del texto dentro del input */
+      --placeholder-color: #AAAAAA;
+    }
+    
+    ion-button {
+      margin: 30px 0;
+    }
+    ion-datetime {
+      --color: #000;              // Color del texto general en el selector
+      --button-color: #3880ff;    // Color de los botones "Aceptar" y "Cancelar"
+      --button-background-hover: #e0e0e0;  // Color de fondo al pasar el cursor
+      --button-color-focused: #007aff;     // Color del botón al estar enfocado
+    }
+    

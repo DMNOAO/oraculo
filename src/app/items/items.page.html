@@ -1,0 +1,175 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Gestión</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Formulario para agregar nueva edición -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Agregar Nueva Edición</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12" size-md="6">
+            <ion-input placeholder="ID Edición" [(ngModel)]="newEdicion.id_edicion"></ion-input>
+          </ion-col>
+          <ion-col size="12" size-md="6">
+            <ion-input placeholder="Nombre Edición" [(ngModel)]="newEdicion.name_edicion"></ion-input>
+          </ion-col>
+        </ion-row>
+        
+        <!-- Subir Foto desde archivo -->
+        <ion-row>
+          <ion-col size="12">
+            <input type="file" (change)="onFileSelected($event)" />
+          </ion-col>
+        </ion-row>
+        
+        <ion-row *ngIf="newEdicion.imagen">
+          <ion-col size="12">
+            <img [src]="newEdicion.imagen" alt="Imagen de la Edición" />
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="12">
+            <ion-button expand="full" (click)="addEdicion()">Agregar Edición</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Selector de Edición -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Filtrar Cartas por Edición</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12">
+            <ion-select [(ngModel)]="selectedEdicion" (ionChange)="filterCartasByEdicion()" placeholder="Selecciona una edición">
+              <ion-select-option value="">Todas</ion-select-option>
+              <ion-select-option *ngFor="let edicion of ediciones" [value]="edicion.id_edicion">
+                {{ edicion.name_edicion }}
+              </ion-select-option>
+            </ion-select>
+          </ion-col>
+        </ion-row>
+        
+        <!-- Spinner para indicar carga -->
+        <ion-row *ngIf="!ediciones.length">
+          <ion-col size="12" class="ion-text-center">
+            <ion-spinner name="crescent"></ion-spinner>
+            <p>Cargando ediciones...</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Formulario para Cartas -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Agregar Nueva Carta</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12" size-md="6">
+            <ion-input placeholder="ID Carta" [(ngModel)]="newCarta.id_carta"></ion-input>
+          </ion-col>
+          <ion-col size="12" size-md="6">
+            <ion-input placeholder="Nombre Carta" [(ngModel)]="newCarta.name_carta"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12" size-md="6">
+            <ion-select placeholder="Tipo" [(ngModel)]="newCarta.tipo">
+              <ion-select-option value="aliado">Aliado</ion-select-option>
+              <ion-select-option value="hechizo">Hechizo</ion-select-option>
+              <ion-select-option value="talisman">Talisman</ion-select-option>
+              <ion-select-option value="oro">Oro</ion-select-option>
+              <ion-select-option value="totem">Totem</ion-select-option>
+              <ion-select-option value="arma">Arma</ion-select-option>
+            </ion-select>
+          </ion-col>
+          <ion-col size="12" size-md="6">
+            <ion-input placeholder="Coste" type="number" [(ngModel)]="newCarta.coste" [value]="newCarta.coste ? newCarta.coste : ''"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12" size-md="6">
+            <ion-input placeholder="Rareza" [(ngModel)]="newCarta.rareza"></ion-input>
+          </ion-col>
+          <ion-col size="12" size-md="6">
+            <ion-select placeholder="Edición" [(ngModel)]="newCarta.id_edicion">
+              <ion-select-option *ngFor="let edicion of ediciones" [value]="edicion.id_edicion">
+                {{ edicion.name_edicion }}
+              </ion-select-option>
+            </ion-select>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12">
+            <ion-input placeholder="URL de la Imagen" [(ngModel)]="newCarta.imagen"></ion-input>
+          </ion-col>
+        </ion-row>
+
+        <ion-row *ngIf="newCarta.tipo === 'aliado'">
+          <ion-col size="12" size-md="6">
+            <ion-input placeholder="Fuerza" type="number" [(ngModel)]="newAliado.fuerza"></ion-input>
+          </ion-col>
+          <ion-col size="12" size-md="6">
+            <ion-select placeholder="Raza" [(ngModel)]="newAliado.raza">
+              <ion-select-option value="Caballero">Caballero</ion-select-option>
+              <ion-select-option value="Faire">Faire</ion-select-option>
+              <ion-select-option value="Dragon">Dragon</ion-select-option>
+              <ion-select-option value="Titan">Titan</ion-select-option>
+              <ion-select-option value="Olimpico">Olimpico</ion-select-option>
+              <ion-select-option value="Heroe">Heroe</ion-select-option>
+              <ion-select-option value="Sombra">Sombra</ion-select-option>
+              <ion-select-option value="Desafiante">Desafiante</ion-select-option>
+              <ion-select-option value="Defensor">Defensor</ion-select-option>
+              <ion-select-option value="Eterno">Eterno</ion-select-option>
+              <ion-select-option value="Faraon">Faraon</ion-select-option>
+              <ion-select-option value="Sacerdote">Sacerdote</ion-select-option>
+            </ion-select>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12">
+            <ion-button expand="full" (click)="addCarta()">Agregar Carta</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Lista de Cartas -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Lista de Cartas</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let carta of cartas">
+          <ion-thumbnail slot="start">
+            <img [src]="carta.imagen" alt="Imagen de la carta">
+          </ion-thumbnail>
+          <ion-label>
+            {{ carta.name_carta }} ({{ carta.tipo }}) - Edición: {{ carta.id_edicion }}
+          </ion-label>
+        </ion-item>
+        <!-- Spinner si no hay cartas cargadas -->
+        <ion-item *ngIf="!cartas.length">
+          <ion-label class="ion-text-center">No hay cartas disponibles</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

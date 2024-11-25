@@ -1,0 +1,52 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Tu Colección</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- Encabezado que se muestra cuando se condensa -->
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Tu Colección</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <!-- Lista de elementos seleccionados -->
+  <ion-list *ngIf="selectedItems.length > 0; else emptyList">
+    <ion-item *ngFor="let item of selectedItems">
+      <ion-label>{{ item.name }}</ion-label>
+    </ion-item>
+  </ion-list>
+
+  <!-- Mensaje cuando no hay elementos seleccionados -->
+  <ng-template #emptyList>
+    <ion-card>
+      <ion-card-content>
+        No tienes elementos en tu colección aún.
+      </ion-card-content>
+    </ion-card>
+  </ng-template>
+
+  <!-- Barra de navegación en la parte inferior -->
+  <ion-footer>
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button (click)="navigateTo('home')">
+        <ion-icon name="home-outline"></ion-icon>
+        <ion-label>Inicio</ion-label>
+      </ion-tab-button>
+      <ion-tab-button (click)="navigateTo('perfil')">
+        <ion-icon name="person-outline"></ion-icon>
+        <ion-label>Perfil</ion-label>
+      </ion-tab-button>
+      <ion-tab-button (click)="navigateTo('coleccion')">
+        <ion-icon name="albums-outline"></ion-icon>
+        <ion-label>Tu Colección</ion-label>
+      </ion-tab-button>
+      <ion-tab-button (click)="cerrarSesion()">
+        <ion-icon name="log-out-outline"></ion-icon>
+        <ion-label>Cerrar Sesión</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-footer>
+</ion-content>
