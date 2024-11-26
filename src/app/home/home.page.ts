@@ -12,7 +12,6 @@ export class HomePage implements OnInit, OnDestroy {
     '/assets/Odin.jpg',
     '/assets/Zeus.jpg',
     '/assets/Merlin.jpg',
-    '/assets/ares.jpg',
     '/assets/Daana.jpg',
     '/assets/eter.jpg',
     '/assets/serpiente-negra.jpg',
@@ -22,9 +21,9 @@ export class HomePage implements OnInit, OnDestroy {
   // Definir las ediciones directamente
   ediciones = [
     { title: 'Espada Sagrada', content: '', background: 'assets/espada_sagrada.png', route: 'espada-sagrada' },
-    { title: 'Helénica', content: '', background: 'assets/helenica.png', route: 'listar' },
-    { title: 'Hijos de Danaa', content: '', background: 'assets/hijos_de_daana.png', route: 'listar' },
-    { title: 'Dominios de Ra', content: '', background: 'assets/dominios_de_ra.png', route: 'listar' },
+    { title: 'Helénica', content: '', background: 'assets/helenica.png', route: 'helenica' },
+    { title: 'Hijos de Danaa', content: '', background: 'assets/hijos_de_daana.png', route: 'hijos-daana' },
+    { title: 'Dominios de Ra', content: '', background: 'assets/dominios_de_ra.png', route: 'dominios-ra' },
   ];
 
   currentImageIndex: number = 0;

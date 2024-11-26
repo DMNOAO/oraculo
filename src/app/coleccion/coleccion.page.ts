@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { DBTaskService } from '../services/dbtask.service';
 
 @Component({
   selector: 'app-coleccion',
@@ -9,13 +10,10 @@ import { Router } from '@angular/router';
 export class ColeccionPage implements OnInit { // PascalCase
   selectedItems: any[] = [];
 
-  constructor(private router: Router) {}
+  constructor(private router: Router,private dbTaskService: DBTaskService) {}
 
   ngOnInit() {
-    // Recupera los ítems seleccionados desde el estado de navegación
-    const navigation = this.router.getCurrentNavigation();
-    const state = navigation?.extras.state as { selectedItems: any[] };
-    this.selectedItems = state?.selectedItems || [];
+    this.selectedItems = this.dbTaskService.getSelectedItems(); // Obtener ítems desde el servicio
   }
 
   // Navegación a otras páginas

@@ -5,21 +5,17 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <!-- Encabezado que se muestra cuando se condensa -->
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tu Colección</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <!-- Mostrar tarjetas si hay ítems seleccionados -->
+  <div *ngIf="selectedItems.length > 0; else emptyList">
+    <ion-card *ngFor="let item of selectedItems">
+      <img [src]="item.image" alt="{{ item.name }}" />
+      <ion-card-header>
+        <ion-card-title>{{ item.name }}</ion-card-title>
+      </ion-card-header>
+    </ion-card>
+  </div>
 
-  <!-- Lista de elementos seleccionados -->
-  <ion-list *ngIf="selectedItems.length > 0; else emptyList">
-    <ion-item *ngFor="let item of selectedItems">
-      <ion-label>{{ item.name }}</ion-label>
-    </ion-item>
-  </ion-list>
-
-  <!-- Mensaje cuando no hay elementos seleccionados -->
+  <!-- Mensaje cuando no hay ítems -->
   <ng-template #emptyList>
     <ion-card>
       <ion-card-content>
@@ -27,6 +23,8 @@
       </ion-card-content>
     </ion-card>
   </ng-template>
+</ion-content>
+
 
   <!-- Barra de navegación en la parte inferior -->
   <ion-footer>
@@ -49,4 +47,5 @@
       </ion-tab-button>
     </ion-tab-bar>
   </ion-footer>
-</ion-content>
+
+

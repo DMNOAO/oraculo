@@ -1,23 +1,28 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Espada Sagrada</ion-title>
+    <ion-title>ESPADA SAGRADA</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-img src="assets/espada_sagrada.png" class="imagen-ajustada" alt="Mitos y Leyendas"></ion-img>
-  <ion-list>
-    <!-- Lista de elementos con checkbox "Lo tengo" -->
-    <ion-item *ngFor="let item of checklistItems">
-      <ion-label class="custom-label">{{ item.name }}</ion-label>
-      <ion-checkbox slot="end" [(ngModel)]="item.checked" class="custom-checkbox"></ion-checkbox>
-    </ion-item>
-  </ion-list>
+  <!-- Lista de tarjetas con imágenes y checklist -->
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" *ngFor="let item of checklistItems">
+        <ion-card>
+          <ion-img [src]="item.image" alt="{{ item.name }}" class="card-image"></ion-img>
+          <ion-card-content>
+            <ion-label>{{ item.name }}</ion-label>
+            <ion-checkbox [(ngModel)]="item.checked" slot="end"></ion-checkbox>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
-  <!-- Botón para enviar elementos seleccionados a tucoleccion -->
-  <ion-button expand="full" (click)="navigateToCollection()">
-    Enviar a Colección
-  </ion-button>
+  <!-- Botón para enviar elementos seleccionados a tu colección -->
+  <ion-button expand="full" (click)="navigateToCollection()">Enviar a Colección</ion-button>
 </ion-content>
 
 <ion-footer>
@@ -30,7 +35,7 @@
       <ion-icon name="person-outline"></ion-icon>
       <ion-label>Perfil</ion-label>
     </ion-tab-button>
-    <ion-tab-button (click)="navigateTo('tucoleccion')">
+    <ion-tab-button (click)="navigateTo('coleccion')">
       <ion-icon name="albums-outline"></ion-icon>
       <ion-label>Tu Colección</ion-label>
     </ion-tab-button>

@@ -14,6 +14,24 @@ export class DBTaskService {
 
   private storageReady = false;
 
+  private selectedItems: any[] = []; // Almacena la colección
+
+  // Obtener los ítems seleccionados
+  getSelectedItems(): any[] {
+    return this.selectedItems;
+  }
+
+  // Agregar ítems seleccionados
+  addSelectedItems(items: any[]): void {
+    this.selectedItems.push(...items);
+  }
+
+  // (Opcional) Limpiar la colección
+  clearSelectedItems(): void {
+    this.selectedItems = [];
+  }
+
+
   constructor(private storage: Storage) {
     this.initStorage();
   }
